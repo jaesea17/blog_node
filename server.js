@@ -8,6 +8,7 @@ const app = express();
 //set the view to be 'ejs' while 'view engine' convert the ejs to html
 app.set('view engine', 'ejs');
 
+app.use(express.static('views'));
 app.use(express.urlencoded({ extended: false }));
 app.use('/articles', articleRouter);
 app.use(methodOverride('_method'));
