@@ -1,6 +1,6 @@
 # Blog
 
-This is a Blog created with just Nodejs, Express and various libraries
+This is a Blog created with Nodejs, Express and various libraries
 
 <br />
 <br />
@@ -46,7 +46,7 @@ Express
 
 ## Link to app
 
-`https://blog-node.herokuapp.com/`
+<!-- `https://blog-node.herokuapp.com/` -->
 
 ## Questions
 
