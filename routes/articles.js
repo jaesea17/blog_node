@@ -22,13 +22,16 @@ router.post('/', async (req, res, next) => {
     next();
 }, saveArticleAndRedirect('new'))
 
-router.delete('/slug', async (req, res) => {
-    console.log('*******', req.params.slug);
+//actually "delete" not best practice but only way out i could find
+router.post('/:slug', async (req, res) => {
+    console.log("it got here")
     await Article.findOneAndDelete({ slug: req.params.slug })
+    console.log("deleted");
     res.redirect('/');
 })
 
-router.put('/:id', async (req, res) => {
+//actually "put" not best practice but only way out i could find
+router.post('/update/:id', async (req, res, next) => {
     req.article = await Article.findById(req.params.id);
     next();
 }, saveArticleAndRedirect('edit'))

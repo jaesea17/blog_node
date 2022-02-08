@@ -46,7 +46,7 @@ Express
 
 ## Link to app
 
-<!-- `https://blog-nodee.herokuapp.com/` -->
+ `https://blog-nodee.herokuapp.com/` 
 
 ## Questions
 

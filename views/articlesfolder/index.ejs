@@ -37,12 +37,18 @@
                     <a href="articles/edit/<%= article.id %>"
                         class="btn btn-info">Edit
                     </a>
-
-                    <form action="/articles/<%= article.slug %>?_method=DELETE" 
+                    
+                    <form action="/articles/<%= article.slug %>" 
                         method="POST" class="d-inline"
                     >
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
+
+                    <!-- <form action="/articles/<%= article.slug %>?_method=DELETE" 
+                        method="POST" class="d-inline"
+                    >
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form> -->
 
                 </div>
             </div>

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+//const MarkdownIt = require('markdown-it')();
 const { marked } = require('marked');// allows creation of markdown and turned into HTML
 const slugify = require('slugify');// allows creation of slug to be used in the URL
 const createDomPurify = require('dompurify');// used to prevent malicius js running in our markdown
@@ -39,9 +40,9 @@ articleSchema.pre('validate', function(next) {
     }
 
     if (this.markdown) {
-        this.sanitizedHtml = marked.parse(this.markdown)
+        this.sanitizedHtml = dompurify.sanitize(marked.parse(this.markdown))
     }
-
+    
     next();
 })
 
