@@ -42,7 +42,7 @@ articleSchema.pre('validate', function(next) {
     if (this.markdown) {
         this.sanitizedHtml = dompurify.sanitize(marked.parse(this.markdown))
     }
-    
+
     next();
 })
 

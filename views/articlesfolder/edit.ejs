@@ -16,7 +16,7 @@
     <div class="container">
         <h1 class="mb-4">Edit Article</h1>
         
-        <form action="/articles/update/<%= article.id %>" method="POST">
+        <form action="/articles/update/<%= article.slug %>" method="POST">
             <!--displays the exact html from _form_fields -->
             <%- include('_form_fields') %>
         </form>
