@@ -23,25 +23,26 @@ router.post('/', async (req, res, next) => {
 }, saveArticleAndRedirect('new'))
 
 //actually "delete" not best practice but only way out i could find
-router.post('/:slug', async (req, res, alert) => {
+router.post('/:slug', async (req, res) => {
     if (req.params.slug === "welcome") {
-        alert("Nice try!!");
-        console.log("developer's article immutable");
-        return;
+        console.log("developer's article immutable")
+        res.render('articlesfolder/editanddelete')
+    }else{
+        await Article.findOneAndDelete({ slug: req.params.slug })
+        res.redirect('/');
     }
-    await Article.findOneAndDelete({ slug: req.params.slug })
-    res.redirect('/');
+    
 })
 
 //actually "put" not best practice but only way out i could find
-router.post('/update/:slug', async (req, next, alert) => {
+router.post('/update/:slug', async (req, res, next) => {
     if (req.params.slug === "welcome") {
-        alert("Nice try!!");
-        console.log("developer's article immutable");
-        return;
+        console.log("developer's article immutable")
+        res.render('articlesfolder/editanddelete')
+    }else{
+        req.article = await Article.findOne({ slug: req.params.slug });
+        next();
     }
-    req.article = await Article.findOne({ slug: req.params.slug });
-    next();
 }, saveArticleAndRedirect('edit'))
 
 
