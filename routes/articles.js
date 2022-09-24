@@ -35,15 +35,15 @@ router.post('/:slug', async (req, res) => {
 })
 
 //actually "put" not best practice but only way out i could find
-// router.post('/update/:slug', async (req, res, next) => {
-//     if (req.params.slug === "welcome") {
-//         console.log("developer's article immutable")
-//         res.render('articlesfolder/editanddelete')
-//     }else{
-//         req.article = await Article.findOne({ slug: req.params.slug });
-//         next();
-//     }
-// }, saveArticleAndRedirect('edit'))
+router.post('/update/:slug', async (req, res, next) => {
+    // if (req.params.slug === "welcome") {
+    //     console.log("developer's article immutable")
+    //     res.render('articlesfolder/editanddelete')
+    // }else{
+    req.article = await Article.findOne({ slug: req.params.slug });
+    next();
+    // }
+}, saveArticleAndRedirect('edit'))
 
 
 
